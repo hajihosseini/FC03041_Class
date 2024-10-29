@@ -1,6 +1,4 @@
-def power():
-    a = 3
-    b = 2
+def power(a,b):
     result = 1
     for _ in range(a):
         result = result * b
@@ -8,4 +6,6 @@ def power():
     print(result)
 
 
-power()
+power(3,2)
+power(2,3)
+power(3,4)
