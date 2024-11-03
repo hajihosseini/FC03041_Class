@@ -5,27 +5,39 @@
     # "\033[95m",  # Magenta
     # "\033[96m",  # Cyan
     # "\033[97m",  # White
+def calc_dist(x, y):
+    return (x**2 + y**2)**0.5
 
-def get_color(x, y, r):
-    d = 0
-    return "\033[" + d+91 + "m"
+def get_color(x, y):
+    d = calc_dist(x, y)    
+    return "\033[" + str(d+91) + "m"
 
 def inside_circle(x, y, r):
-    d = 0;
-    if d < r:
+    if calc_dist(x,y) <= r:
         return True
     else:
         return False
 
+def print_one_line(r, y):
+    for x in range(-r ,r + 1):
+        c = get_color(x, y)
+        if inside_circle(x, y, r):
+            print(c + '**', end='')
+        else:
+            print('  ', end='')
+    print()
+
 def print_circle(r):
     for y in range(-r ,r + 1):
-        for x in range(-r ,r + 1):
-            c = get_color(x, y, r)
-            if inside_circle(x, y, r):
-                print('*', end='')
-            else:
-                print(' ', end='')
-    pass
+        print_one_line(r, y)
 
+        
+def minimum(a, b):
+    return a
+
+m = minimum(5, 4)
+print(m)
 
 print_circle(10)
+# print_one_line(15,7)
+# print_one_line(15,8)
