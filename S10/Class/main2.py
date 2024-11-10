@@ -13,6 +13,7 @@ def tj(n):
     tj(n)
     turtle.left(60)
     tj(n)
+    turtle.forward(n)
 
 
 
