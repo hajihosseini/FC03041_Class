@@ -21,8 +21,20 @@ def q2_BMM(a,b):
 def q3_KMM(a,b):
     pass
 
+
+def CheckIn(s, ch):
+    for i in range(len(s)):
+        if s[i] == ch:
+            return True
+    return False
+
 def q4_remove_vowel_chr(s):
-    pass
+    news = ""
+    vowel = "AaIiUuEeOo"
+    for i in s:
+        if CheckIn(vowel,i)==False:
+            news += i
+    return news
 
 def q5_is_sum_of_squares(a):
     newstr = ""
