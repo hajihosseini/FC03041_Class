@@ -10,8 +10,8 @@ void swap(int* a, int* b)
 void main()
 {
     int w = 5;
-    int* x = 0;
-    if (x != 0)
+    int* x = NULL;
+    // if (x !=  NULL)
     {
         *x = 5;
     }

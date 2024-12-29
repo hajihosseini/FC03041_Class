@@ -33,19 +33,19 @@ TEST_SUITE("memory")
         }
     }
 
-    // TEST_CASE("byte of integer")
-    // {
-    //     unsigned int n = 0xffaaeedd;
-    //     unsigned char first_byte = 0xdd;
-    //     unsigned char second_byte = 0xee;
-    //     unsigned char third_byte = 0xaa;
-    //     unsigned char forth_byte = 0xff;
+    TEST_CASE("byte of integer")
+    {
+        unsigned int n = 0xffaaeedd;
+        unsigned char first_byte = 0xdd;
+        unsigned char second_byte = 0xee;
+        unsigned char third_byte = 0xaa;
+        unsigned char forth_byte = 0xff;
 
-    //     CHECK(first_byte == get_byte(n, 0));
-    //     CHECK(second_byte == get_byte(n, 1));
-    //     CHECK(third_byte == get_byte(n, 2));
-    //     CHECK(forth_byte == get_byte(n, 3));
-    // }
+        CHECK(first_byte == get_byte(n, 0));
+        CHECK(second_byte == get_byte(n, 1));
+        CHECK(third_byte == get_byte(n, 2));
+        CHECK(forth_byte == get_byte(n, 3));
+    }
 
     // TEST_CASE("pointer math")
     // {
