@@ -47,33 +47,34 @@ TEST_SUITE("memory")
         CHECK(forth_byte == get_byte(n, 3));
     }
 
-    // TEST_CASE("pointer math")
-    // {
-    //     char pch[15] = "abcdefghijkl";
-    //     char *actual = address_plus(&(pch[2]), 4);
-    //     char *expected = &(pch[6]);
-    //     CHECK(actual == expected);
+    TEST_CASE("pointer math")
+    {
+        char pch[15] = "abcdefghijkl";
+        char *actual = address_plus(&(pch[2]), 4);
+        char *expected = &(pch[6]);
+        CHECK(actual == expected);
 
-    //     actual = address_plus(&(pch[1]), 7);
-    //     expected = &(pch[8]);
-    //     CHECK(actual == expected);
-    // }
+        actual = address_plus(&(pch[1]), 7);
+        expected = &(pch[8]);
+        CHECK(actual == expected);
+    }
 
-    // TEST_CASE("array as integer")
-    // {
-    //     char pch[5] = "AAAA";
-    //     int actual = array_as_int(pch);
-    //     int expected = 0x41414141;
-    //     CHECK(actual == expected);
+    TEST_CASE("array as integer")
+    {
+        char pch[5] = "AAAA";
+        int actual = array_as_int(pch);
+        // int expected = 0x41414141; //1094795585
+        int expected = 1094795585; //1094795585
+        CHECK(actual == expected);
 
-    //     char pch2[4] = "BBB";
-    //     actual = array_as_int(pch2);
-    //     expected = 0x00424242;
-    //     CHECK(actual == expected);
+        char pch2[4] = "BBB";
+        actual = array_as_int(pch2);
+        expected = 0x00424242;
+        CHECK(actual == expected);
 
-    //     pch[0] = 0;
-    //     actual = array_as_int(pch);
-    //     expected = 0x41414100;
-    //     CHECK(actual == expected);
-    // }
+        pch[0] = 0;
+        actual = array_as_int(pch);
+        expected = 0x41414100;
+        CHECK(actual == expected);
+    }
 }
