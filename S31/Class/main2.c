@@ -23,13 +23,16 @@ void copys(char* pSrc, char*pDst)
     *pDst = 0;
 }
 
-Student* make_student(char* name)
+Student* make_student(char** name, int count)
 {
-    Student* ps = malloc(sizeof(Student));
-    ps->id = ++last_id;
-    copys(name, ps->name);
-    ps->credits = 17;
-    ps->ssn = 0;
+    Student* ps = malloc(sizeof(Student)*4);
+    for(int i=0; i<count; i++)
+    {
+        ps->id = ++last_id;
+        copys(name, ps->name);
+        ps->credits = 17;
+        ps->ssn = 0;
+    }
     return ps;
 }
 
@@ -44,7 +47,8 @@ void print_student(Student* s)
 Student* register_all_students()
 {
     char* names[]  = {"Ali", "Zari", "Pari", "Mari"};
-    Student* s = make_student(names);
+    // char names[]  = "Ali";
+    Student* s = make_student(names, 4);
     return s;
 }
 
