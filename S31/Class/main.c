@@ -5,10 +5,34 @@ typedef struct _Student
 {
     int id;
     char name[10];
+    char* name2;
     int ssn;
     int credits;
 } Student;
 #pragma pack(pop)
+
+void main3()
+{
+    char c = 'a';
+    char buf2[5] = "adsf";
+    char* pch = &(buf2[1]);
+    char ch = buf2[1];
+
+    char buf[10] = "aabb";
+    Student s = {
+        .id = 0xaaffaaff,
+        .name = "AAAA",
+        .name2 = "BBBB",
+        .ssn = 0xeeffccff,
+        .credits = 0xff
+    };
+    printf("%d\n",s.id);
+    printf("%s\n",s.name);
+    printf("%s\n",s.name2);
+    s.name2 = buf;
+    s.name2[0] = 'Z';
+    printf("%s\n",s.name2);
+}
 
 void print_student1(Student s)
 {
@@ -26,7 +50,11 @@ void print_student(Student* s)
     printf("name: %s\n", s->name);
 }
 
-void main()
+
+
+
+
+void main2()
 {
     Student s[2] = {{
         .id = 0x88aaff11,
