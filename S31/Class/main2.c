@@ -23,20 +23,36 @@ void copys(char* pSrc, char*pDst)
     *pDst = 0;
 }
 
+// Student* make_student(char** name, int count)
+// {
+//     Student* pso = malloc(sizeof(Student)*count);
+//     Student* ps = pso;
+//     for(int i=0; i<count; i++)
+//     {
+//         ps->id = ++last_id;
+//         copys(name, ps->name);
+//         ps->credits = 17;
+//         ps->ssn = 0;
+//         ps++;
+//     }
+//     return pso;
+// }
+
+
 Student* make_student(char** name, int count)
 {
-    Student* ps = malloc(sizeof(Student)*4);
+    Student* ps = malloc(sizeof(Student)*count);
     for(int i=0; i<count; i++)
     {
-        ps->id = ++last_id;
-        copys(name, ps->name);
-        ps->credits = 17;
-        ps->ssn = 0;
+        ps[i].id = ++last_id;
+        copys(name, ps[i].name);
+        ps[i].credits = 17;
+        ps[i].ssn = 0;
     }
     return ps;
 }
 
-void print_student(Student* s)
+void print_student(Student* s, int count)
 {
     printf("id: %d\n", s->id);
     printf("ssn: %d\n", s->ssn);
@@ -44,16 +60,17 @@ void print_student(Student* s)
     printf("name: %s\n", s->name);
 }
 
-Student* register_all_students()
+int register_all_students(Student ** ps)
 {
     char* names[]  = {"Ali", "Zari", "Pari", "Mari"};
     // char names[]  = "Ali";
-    Student* s = make_student(names, 4);
-    return s;
+    *ps = make_student(names, 4);
+    return 4;
 }
 
 void main()
 {
-    Student* s = register_all_students();
-    print_student(s);
+    Student* ps = NULL;
+    int count = register_all_students(&ps);
+    print_student(ps, count);
 }
